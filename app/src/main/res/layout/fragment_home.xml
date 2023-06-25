@@ -7,6 +7,21 @@
     tools:context=".ui.home.HomeFragment">
 
   <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tvGreeting"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginBottom="8dp"
+      android:text="@string/good_morning"
+      android:textColor="#000"
+      android:textSize="32sp"
+      android:textStyle="bold"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/tvTopNews"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -14,12 +29,12 @@
       android:layout_marginTop="8dp"
       android:layout_marginEnd="8dp"
       android:layout_marginBottom="8dp"
-      android:text="Top News"
+      android:text="@string/breaking_news"
       android:textColor="#000"
       android:textSize="20sp"
       android:textStyle="bold"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintTop_toBottomOf="@id/tvGreeting" />
 
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/recyclerTop"
@@ -33,5 +48,33 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@id/tvTopNews"
       tools:listitem="@layout/top_headline_list_item" />
+
+  <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tvCategoryNews"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="12dp"
+      android:layout_marginEnd="8dp"
+      android:text="@string/category_news"
+      android:textColor="#000"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/recyclerTop" />
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recyclerCategory"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="4dp"
+      android:layout_marginEnd="4dp"
+      android:nestedScrollingEnabled="false"
+      app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/tvCategoryNews"
+      app:spanCount="3"
+      tools:listitem="@layout/category_list_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

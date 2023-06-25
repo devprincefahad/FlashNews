@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import dev.prince.flashnews.R
 import dev.prince.flashnews.databinding.FragmentBookmarkBinding
-import dev.prince.flashnews.databinding.FragmentCategoryBinding
 
 class BookmarkFragment : Fragment() {
 

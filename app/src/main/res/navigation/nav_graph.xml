@@ -12,15 +12,15 @@
       tools:layout="@layout/fragment_home" />
 
   <fragment
-      android:id="@+id/categoryFragment"
-      android:name="dev.prince.flashnews.ui.categories.CategoryFragment"
+      android:id="@+id/discoverFragment"
+      android:name="dev.prince.flashnews.ui.discover.DiscoverFragment"
       android:label="fragment_category"
-      tools:layout="@layout/fragment_category" />
+      tools:layout="@layout/fragment_discover" />
 
   <fragment
       android:id="@+id/bookmarkFragment"
       android:name="dev.prince.flashnews.ui.bookmark.BookmarkFragment"
       android:label="fragment_bookmark"
-      tools:layout="@layout/fragment_category" />
+      tools:layout="@layout/fragment_bookmark" />
 
 </navigation>

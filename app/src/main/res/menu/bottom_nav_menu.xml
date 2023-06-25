@@ -7,9 +7,9 @@
       android:title="@string/home" />
 
   <item
-      android:id="@+id/categoryFragment"
-      android:icon="@drawable/categories"
-      android:title="@string/categories" />
+      android:id="@+id/discoverFragment"
+      android:icon="@drawable/explore"
+      android:title="@string/explore" />
 
   <item
       android:id="@+id/bookmarkFragment"
