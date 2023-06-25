@@ -14,8 +14,8 @@ interface NewsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(allNews: List<Articles>)
 
-    @Query("SELECT * from articles order by id DESC")
-    fun getAllNews(): LiveData<List<Articles>>
+//    @Query("SELECT * from articles order by id DESC")
+//    fun getAllNews(): LiveData<List<Articles>>
 
     @Query("SELECT * from articles order by id DESC")
     fun getTopHeadlines(): LiveData<List<Articles>>

@@ -2,9 +2,11 @@ package dev.prince.flashnews.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.PopupMenu
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import dev.prince.flashnews.R
 import dev.prince.flashnews.databinding.ActivityMainBinding
@@ -23,5 +25,10 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.findNavController()
+
+        val popUpMenu = PopupMenu(this,null)
+        popUpMenu.inflate(R.menu.bottom_nav_menu)
+        binding.navView.setupWithNavController(navController)
+
     }
 }

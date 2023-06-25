@@ -1,15 +1,17 @@
 package dev.prince.flashnews.models
 
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
 
-@Entity(tableName = "articles")
+@Entity(
+    tableName = "articles",
+    indices = [Index(value = ["url"], unique = true)]
+)
 data class Articles(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
-
+    val id: Int = 0,
     @SerializedName("author")
     var author: String?,
     @SerializedName("title")

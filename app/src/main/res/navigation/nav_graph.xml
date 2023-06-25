@@ -8,7 +8,19 @@
   <fragment
       android:id="@+id/homeFragment"
       android:name="dev.prince.flashnews.ui.home.HomeFragment"
-      android:label="Home"
+      android:label="fragment_home"
       tools:layout="@layout/fragment_home" />
+
+  <fragment
+      android:id="@+id/categoryFragment"
+      android:name="dev.prince.flashnews.ui.categories.CategoryFragment"
+      android:label="fragment_category"
+      tools:layout="@layout/fragment_category" />
+
+  <fragment
+      android:id="@+id/bookmarkFragment"
+      android:name="dev.prince.flashnews.ui.bookmark.BookmarkFragment"
+      android:label="fragment_bookmark"
+      tools:layout="@layout/fragment_category" />
 
 </navigation>
