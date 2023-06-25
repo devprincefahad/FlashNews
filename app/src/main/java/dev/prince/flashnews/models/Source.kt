@@ -1,6 +1,10 @@
 package dev.prince.flashnews.models
 
+import com.google.gson.annotations.SerializedName
+
 data class Source(
-    val id: String? = null,
-    val name: String? = null,
+    @SerializedName("id")
+    var id: String?,
+    @SerializedName("name")
+    var name: String?
 )
