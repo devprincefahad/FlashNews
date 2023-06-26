@@ -14,7 +14,9 @@
   <string name="good_morning">Good Morning</string>
   <string name="good_evening">Good Evening</string>
 
-  <string name="category_news">Category News</string>
+  <string name="recommended_news">Recommended for you</string>
+
+  <string name="view_all">View All</string>
 
   <string name="health">Health</string>
   <string name="technology">Technology</string>

@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.prince.flashnews.data.repository.Repository
+import dev.prince.flashnews.util.SOURCE_BBC_NEWS
+import dev.prince.flashnews.util.SOURCE_REUTERS
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -14,9 +16,12 @@ class HomeViewModel @Inject constructor(
 
     val topNews = repository.topNews
 
+    val recommendedNews = repository.recommendedNews
+
     init {
         viewModelScope.launch {
-            repository.getTopRatedNews()
+            repository.getNews(SOURCE_REUTERS)
+            repository.getNews(SOURCE_BBC_NEWS)
         }
     }
 

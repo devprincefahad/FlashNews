@@ -1,10 +1,12 @@
 package dev.prince.flashnews.models
 
+import androidx.room.ColumnInfo
 import com.google.gson.annotations.SerializedName
 
 data class Source(
     @SerializedName("id")
-    var id: String?,
+    @ColumnInfo(name = "source_id")
+    var sourceId: String?,
     @SerializedName("name")
-    var name: String?
+    var sourceName: String?
 )

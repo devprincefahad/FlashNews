@@ -2,13 +2,9 @@ package dev.prince.flashnews.ui.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import dev.prince.flashnews.R
 import dev.prince.flashnews.databinding.CategoryListItemBinding
-import dev.prince.flashnews.databinding.TopHeadlineListItemBinding
 import dev.prince.flashnews.models.Category
 
 class CategoryAdapter(

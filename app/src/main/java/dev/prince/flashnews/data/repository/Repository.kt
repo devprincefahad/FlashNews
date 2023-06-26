@@ -9,6 +9,8 @@ interface Repository {
 
     val topNews: LiveData<List<Articles>>
 
-    suspend fun getTopRatedNews(): ApiResult<NewsResponse?>
+    val recommendedNews: LiveData<List<Articles>>
+
+    suspend fun getNews(source: String): ApiResult<NewsResponse?>
 
 }

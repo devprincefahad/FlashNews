@@ -40,7 +40,8 @@
       android:id="@+id/recyclerTop"
       android:layout_width="match_parent"
       android:layout_height="0dp"
-      android:layout_margin="8dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="8dp"
       android:nestedScrollingEnabled="false"
       android:orientation="horizontal"
       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -49,32 +50,62 @@
       app:layout_constraintTop_toBottomOf="@id/tvTopNews"
       tools:listitem="@layout/top_headline_list_item" />
 
-  <androidx.appcompat.widget.AppCompatTextView
-      android:id="@+id/tvCategoryNews"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="8dp"
-      android:layout_marginTop="12dp"
-      android:layout_marginEnd="8dp"
-      android:text="@string/category_news"
-      android:textColor="#000"
-      android:textSize="20sp"
-      android:textStyle="bold"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/recyclerTop" />
-
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/recyclerCategory"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginStart="4dp"
+      android:layout_marginTop="14dp"
       android:layout_marginEnd="4dp"
       android:nestedScrollingEnabled="false"
       app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/tvCategoryNews"
-      app:spanCount="3"
+      app:layout_constraintTop_toBottomOf="@id/recyclerTop"
+      app:spanCount="2"
+      tools:itemCount="6"
       tools:listitem="@layout/category_list_item" />
+
+  <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tvRecommendedNews"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="12dp"
+      android:layout_marginEnd="8dp"
+      android:text="@string/recommended_news"
+      android:textColor="#000"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/recyclerCategory" />
+
+  <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tvViewAll"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="13dp"
+      android:layout_marginEnd="8dp"
+      android:text="@string/view_all"
+      android:textColor="#2196F3"
+      android:textSize="14sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/recyclerCategory" />
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recyclerRecommended"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="8dp"
+      android:nestedScrollingEnabled="false"
+      android:orientation="vertical"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/tvRecommendedNews" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

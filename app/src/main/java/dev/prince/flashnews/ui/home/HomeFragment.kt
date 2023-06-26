@@ -12,6 +12,7 @@ import dev.prince.flashnews.R
 import dev.prince.flashnews.databinding.FragmentHomeBinding
 import dev.prince.flashnews.models.Category
 import dev.prince.flashnews.ui.adapters.CategoryAdapter
+import dev.prince.flashnews.ui.adapters.RecommendedNewsAdapter
 import dev.prince.flashnews.ui.adapters.TopNewsAdapter
 import java.util.Calendar
 
@@ -25,7 +26,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         val categoryList = listOf(
             Category(getString(R.string.general), R.drawable.general),
             Category(getString(R.string.health), R.drawable.health),
@@ -42,9 +42,13 @@ class HomeFragment : Fragment() {
         homeViewModel.topNews.observe(viewLifecycleOwner) { news ->
             binding.recyclerTop.adapter = TopNewsAdapter(requireContext(), news)
         }
-//        binding.recyclerCategory.layoutManager =
-//            GridLayoutManager(requireContext(), 3, GridLayoutManager.HORIZONTAL, false)
+
         binding.recyclerCategory.adapter = CategoryAdapter(requireContext(), categoryList)
+
+        homeViewModel.recommendedNews.observe(viewLifecycleOwner) { recommendedNews ->
+            binding.recyclerRecommended.adapter =
+                RecommendedNewsAdapter(requireContext(), recommendedNews)
+        }
 
         return binding.root
     }
