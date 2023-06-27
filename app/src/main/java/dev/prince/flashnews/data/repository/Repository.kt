@@ -8,8 +8,9 @@ import dev.prince.flashnews.models.NewsResponse
 interface Repository {
 
     val topNews: LiveData<List<Articles>>
-
     val recommendedNews: LiveData<List<Articles>>
+
+    fun getNewsByUrl(url: String): LiveData<Articles>
 
     suspend fun getNews(source: String): ApiResult<NewsResponse?>
 

@@ -3,11 +3,13 @@ package dev.prince.flashnews.ui.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.prince.flashnews.databinding.TopHeadlineListItemBinding
 import dev.prince.flashnews.models.Articles
+import dev.prince.flashnews.ui.home.HomeFragmentDirections
+import dev.prince.flashnews.util.NEWS_LIMIT
 
 class TopNewsAdapter(
     private val context: Context,
@@ -32,13 +34,15 @@ class TopNewsAdapter(
             }
 
             binding.topCardView.setOnClickListener {
-                Toast.makeText(context, "Item clicked", Toast.LENGTH_SHORT).show()
+                findNavController(it).navigate(
+                    HomeFragmentDirections.actionHomeFragmentToDetailsFragment(headline.url!!)
+                )
             }
         }
 
     }
 
-    override fun getItemCount(): Int = topHeadlines.size
+    override fun getItemCount(): Int = NEWS_LIMIT
 }
 
 class TopNewsViewHolder(val binding: TopHeadlineListItemBinding) :

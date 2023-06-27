@@ -4,10 +4,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.prince.flashnews.databinding.HeadlineListItemBinding
 import dev.prince.flashnews.models.Articles
+import dev.prince.flashnews.ui.home.HomeFragmentDirections
+import dev.prince.flashnews.util.NEWS_LIMIT
 
 class RecommendedNewsAdapter(
     private val context: Context,
@@ -23,7 +26,7 @@ class RecommendedNewsAdapter(
             )
         )
 
-    override fun getItemCount(): Int = headlines.size
+    override fun getItemCount(): Int = NEWS_LIMIT
 
     override fun onBindViewHolder(holder: RecommendedNewsViewHolder, position: Int) {
 
@@ -36,7 +39,9 @@ class RecommendedNewsAdapter(
             }
 
             binding.linearLayout.setOnClickListener {
-                Toast.makeText(context, "Item clicked", Toast.LENGTH_SHORT).show()
+                Navigation.findNavController(it).navigate(
+                    HomeFragmentDirections.actionHomeFragmentToDetailsFragment(headline.url!!)
+                )
             }
         }
     }

@@ -1,11 +1,13 @@
 package dev.prince.flashnews.data.datasource
 
+import androidx.lifecycle.LiveData
 import dev.prince.flashnews.R
 import dev.prince.flashnews.api.API_KEY2
 import dev.prince.flashnews.api.ApiService
 import dev.prince.flashnews.data.network.ApiResult
 import dev.prince.flashnews.data.repository.Repository
 import dev.prince.flashnews.db.NewsDatabase
+import dev.prince.flashnews.models.Articles
 import dev.prince.flashnews.models.NewsResponse
 import dev.prince.flashnews.util.SOURCE_BBC_NEWS
 import dev.prince.flashnews.util.SOURCE_REUTERS
@@ -20,6 +22,9 @@ class DataSource @Inject constructor(
     private val newsDao = db.newsDao()
     override val topNews = newsDao.getTopHeadlines(SOURCE_REUTERS)
     override val recommendedNews = newsDao.getRecommendedHeadlines(SOURCE_BBC_NEWS)
+    override fun getNewsByUrl(url: String): LiveData<Articles> {
+        return newsDao.getNews(url)
+    }
 
     override suspend fun getNews(source: String): ApiResult<NewsResponse?> {
         return try {
@@ -37,4 +42,5 @@ class DataSource @Inject constructor(
             ApiResult.Error("${R.string.error_occurred} ${e.localizedMessage}")
         }
     }
+
 }

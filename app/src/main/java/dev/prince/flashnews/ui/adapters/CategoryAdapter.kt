@@ -3,9 +3,11 @@ package dev.prince.flashnews.ui.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import dev.prince.flashnews.databinding.CategoryListItemBinding
 import dev.prince.flashnews.models.Category
+import dev.prince.flashnews.ui.home.HomeFragmentDirections
 
 class CategoryAdapter(
     private val context: Context,
@@ -26,6 +28,11 @@ class CategoryAdapter(
            val item = categoryList[position]
            binding.categoryTitleTv.text = item.categoryTitle
            binding.categoryIconImg.setImageResource(item.categoryImg)
+           binding.categoryCardView.setOnClickListener{
+               Navigation.findNavController(it).navigate(
+                   HomeFragmentDirections.actionHomeFragmentToAllArticlesFragment(item.categoryTitle)
+               )
+           }
        }
     }
 

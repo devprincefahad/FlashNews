@@ -6,7 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import dev.prince.flashnews.R
 import dev.prince.flashnews.databinding.FragmentHomeBinding
@@ -26,6 +27,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         val categoryList = listOf(
             Category(getString(R.string.general), R.drawable.general),
             Category(getString(R.string.health), R.drawable.health),
@@ -44,6 +46,12 @@ class HomeFragment : Fragment() {
         }
 
         binding.recyclerCategory.adapter = CategoryAdapter(requireContext(), categoryList)
+
+        binding.tvViewAll.setOnClickListener {
+            Navigation.findNavController(it).navigate(
+                HomeFragmentDirections.actionHomeFragmentToAllArticlesFragment(getString(R.string.recommended_news))
+            )
+        }
 
         homeViewModel.recommendedNews.observe(viewLifecycleOwner) { recommendedNews ->
             binding.recyclerRecommended.adapter =

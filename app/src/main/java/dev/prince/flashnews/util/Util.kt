@@ -9,3 +9,5 @@ const val SOURCE_ABC_NEWS = "abc-news"
 const val SOURCE_THE_WASHINGTON_TIMES = "the-washington-times"
 const val SOURCE_TIME = "time"
 const val SOURCE_REUTERS = "reuters"
+
+const val NEWS_LIMIT = 5

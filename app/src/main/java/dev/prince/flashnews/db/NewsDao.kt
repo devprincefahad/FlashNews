@@ -28,7 +28,7 @@ interface NewsDao {
 //    @Query("DELETE FROM articles WHERE id= :id AND type = '$BOOKMARKED'")
 //    suspend fun deleteNews(id: Int)
 
-//    @Query("SELECT * FROM news WHERE type = '$BOOKMARKED'")
-//    fun getBookmarkedNews(title: String): List<News>
+    @Query("SELECT * FROM articles WHERE url =:url")
+    fun getNews(url: String): LiveData<Articles>
 
 }
