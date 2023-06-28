@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.navArgs
+import androidx.navigation.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import dev.prince.flashnews.R
 import dev.prince.flashnews.databinding.FragmentHomeBinding
@@ -48,14 +47,15 @@ class HomeFragment : Fragment() {
         binding.recyclerCategory.adapter = CategoryAdapter(requireContext(), categoryList)
 
         binding.tvViewAll.setOnClickListener {
-            Navigation.findNavController(it).navigate(
+            it.findNavController().navigate(
                 HomeFragmentDirections.actionHomeFragmentToAllArticlesFragment(getString(R.string.recommended_news))
             )
         }
 
         homeViewModel.recommendedNews.observe(viewLifecycleOwner) { recommendedNews ->
+            val key = "HomeFragment"
             binding.recyclerRecommended.adapter =
-                RecommendedNewsAdapter(requireContext(), recommendedNews)
+                RecommendedNewsAdapter(requireContext(), recommendedNews, key)
         }
 
         return binding.root

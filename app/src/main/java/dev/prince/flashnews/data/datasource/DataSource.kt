@@ -1,5 +1,6 @@
 package dev.prince.flashnews.data.datasource
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import dev.prince.flashnews.R
 import dev.prince.flashnews.api.API_KEY2
@@ -28,8 +29,28 @@ class DataSource @Inject constructor(
 
     override suspend fun getNews(source: String): ApiResult<NewsResponse?> {
         return try {
-            val result = api.getNewsBySource(source, API_KEY2)
+            val result = api.getNewsBySource(source)
             val news = result.body()?.articles
+            if (result.isSuccessful) {
+                news?.let { newsDao.insert(it) }
+                ApiResult.Success(result.body())
+            } else {
+                ApiResult.Error("${R.string.request_failed} ${result.code()}")
+            }
+        } catch (e: HttpException) {
+            ApiResult.Error("${R.string.http_exception}  ${e.localizedMessage}")
+        } catch (e: Exception) {
+            ApiResult.Error("${R.string.error_occurred} ${e.localizedMessage}")
+        }
+    }
+
+    override suspend fun getNewsByCategory(
+        category: String
+    ): ApiResult<NewsResponse?> {
+        return try {
+            val result = api.getNewsByCategory(category)
+            val news = result.body()?.articles
+            Log.d("data-category","news: $news + result = $result")
             if (result.isSuccessful) {
                 news?.let { newsDao.insert(it) }
                 ApiResult.Success(result.body())

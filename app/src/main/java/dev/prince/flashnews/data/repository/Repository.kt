@@ -14,4 +14,6 @@ interface Repository {
 
     suspend fun getNews(source: String): ApiResult<NewsResponse?>
 
+    suspend fun getNewsByCategory(category: String): ApiResult<NewsResponse?>
+
 }
