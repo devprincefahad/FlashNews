@@ -20,12 +20,11 @@ class AllArticlesViewModel @Inject constructor(
 
     val recommendedNews = repository.recommendedNews
 
-    val response = MutableLiveData<ApiResult<NewsResponse?>>()
+    private val response = MutableLiveData<ApiResult<NewsResponse?>>()
 
     fun getNewsByCategory(category: String): MutableLiveData<ApiResult<NewsResponse?>> {
         viewModelScope.launch {
             response.value = repository.getNewsByCategory(category)
-            Log.d("data-category","view model $response")
         }
         return response
     }

@@ -7,10 +7,10 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 @Entity(
-    tableName = "articles",
-    indices = [Index(value = ["url"], unique = true)]
+    tableName = "articles", indices = [Index(value = ["url"], unique = true)]
 )
 @TypeConverters(SourceTypeConverter::class)
 data class Articles(

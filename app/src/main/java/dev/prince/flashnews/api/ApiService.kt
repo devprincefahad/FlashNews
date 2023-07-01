@@ -17,7 +17,7 @@ interface ApiService {
     suspend fun getNewsByCategory(
         @Query("category") category: String,
         @Query("country") country: String = "us",
-        @Query("apiKey") apiKey: String = API_KEY2
+        @Query("apiKey") apiKey: String = API_KEY3
     ): Response<NewsResponse>
 
 //    @Query("pagesize") pageSize: Int,
@@ -28,7 +28,7 @@ interface ApiService {
     @GET("v2/top-headlines")
     suspend fun getNewsBySource(
         @Query("sources") sources: String,
-        @Query("apiKey") apiKey: String = API_KEY2
+        @Query("apiKey") apiKey: String = API_KEY3
     ): Response<NewsResponse>
 //?sources=bbc-news&apiKey={apiKey}
 }

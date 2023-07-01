@@ -1,7 +1,11 @@
 package dev.prince.flashnews.util
 
-const val TOP_RATED = "top_rated"
-const val BOOKMARKED = "bookmarked"
+const val TYPE_GENERAL = "general"
+const val TYPE_HEALTH = "health"
+const val TYPE_TECH = "technology"
+const val TYPE_SCIENCE = "science"
+const val TYPE_SPORTS = "sports"
+const val TYPE_BUSINESS = "business"
 
 const val SOURCE_BBC_NEWS = "bbc-news"
 const val SOURCE_TECHCRUNCH = "techcrunch"

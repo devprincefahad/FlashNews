@@ -50,7 +50,9 @@ class DataSource @Inject constructor(
         return try {
             val result = api.getNewsByCategory(category)
             val news = result.body()?.articles
-            Log.d("data-category","news: $news + result = $result")
+//                ?.onEach {
+//                it.type = category
+//            }
             if (result.isSuccessful) {
                 news?.let { newsDao.insert(it) }
                 ApiResult.Success(result.body())

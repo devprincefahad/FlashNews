@@ -40,18 +40,17 @@ class AllArticlesFragment : Fragment() {
                 binding.recyclerView.adapter =
                     RecommendedNewsAdapter(requireContext(), recommendedNews, key)
             }
-        } else {
+        }
+        else {
             category?.lowercase()?.let {
                 allArticlesViewModel.getNewsByCategory(it).observe(viewLifecycleOwner) { categoryNews ->
-                        Log.d("data-category","$categoryNews")
-                        when (categoryNews) {
+                    when (categoryNews) {
                             is ApiResult.Success -> {
                                 val articles = categoryNews.data?.articles
-                                Log.d("data-category","articles: $articles")
+
                                 binding.recyclerView.adapter =
                                     articles?.let { articleList ->
-                                        RecommendedNewsAdapter(requireContext(),
-                                            articleList, key)
+                                        RecommendedNewsAdapter(requireContext(), articleList, key)
                                     }
                             }
 
